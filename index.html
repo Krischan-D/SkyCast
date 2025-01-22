@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="build/output.css">
+</head>
+
+<body>
+    <section class="w-full min-h-screen relative overflow-hidden ">
+
+        <div class="absolute top-0 left-0 w-full h-full object-cover z-0 ">
+            <video autoplay muted loop id="bg-video"
+                class="absolute top-0 left-0 w-full min-h-screen h-full object-cover z-0">
+                <source src="build/assets/videos/Smoky.mp4" type="video/mp4" id="weather-bg">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10"></div>
+        </div>
+
+        <div class="relative z-10  h-full flex flex-col items-center justify-center font-montserrat ">
+            <!-- Input Bar -->
+            <div class="absolute top-0 left-0 w-full h-screen flex justify-center align-center">
+                <div id="input-bar"
+                    class="aboslute w-11/12  flex flex-col m-auto  lg:w-7/12 transition-all duration-500 z-20 ">
+                    <div class="text-center w-full text-white mb-4 leading-5 transition-all duration-200"
+                        id="input-header">
+                        <h1 class="text-center text-white text-4xl mb-0 lg:text-6xl font-semibold lg:mb-6 text-wrap">Get
+                            Real-Time Weather</h1>
+                        <p class="lg:mt-4 text-lg">Enter any city name to check the latest weather conditions.</p>
+                    </div>
+                    <div class="backdrop-blur-md bg-white/10 border border-white/10 rounded-lg w-full shadow-lg lg:w-3/4 mx-auto">
+                        <form action="" class="h-12 w-full relative" id="city-form">
+                            <!-- Icon Container -->
+                            <span
+                                class="absolute left-0 h-full w-12 flex items-center justify-center backdrop-blur-md bg-white/10 border-r border-white/10 text-white">
+                                <i class='bx bx-search text-2xl' style='color:#ffffff'></i>
+                            </span>
+                            <!-- Input Field -->
+                            <input type="text" placeholder="Search a city"
+                                class="h-full w-full pl-16 bg-transparent text-white placeholder-white/70 focus:outline-none"
+                                id="input">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- contents here -->
+            <div class="w-full hidden  pt-28    justify-center flex-col gap-4 lg:flex-row  h-auto flex-1 p-4 "
+                id="weather-data-container" style="display: none;">
+
+                <div class="loader flex justify-center items-center   absolute h-screen w-full  left-0  top-0 "
+                    id="screen-loader" style="display: none;">
+                    <!-- Circle 1 -->
+                    <div
+                        class="circle flex items-center justify-center relative w-5 h-5 border-2 border-[hsl(0,0%,87%)] rounded-full bg-transparent mx-2.5">
+                        <div
+                            class="dot absolute  -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[hsl(0,0%,87%)]">
+                        </div>
+                        <div class="outline outline-[hsl(0,0%,87%)]  absolute  w-5 h-5   rounded-full"></div>
+                    </div>
+                    <!-- Circle 2 -->
+                    <div
+                        class="circle flex items-center justify-center relative w-5 h-5 border-2 border-[hsl(0,0%,87%)] rounded-full bg-transparent mx-2.5">
+                        <div
+                            class="dot absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[hsl(0,0%,87%)]">
+                        </div>
+                        <div class="outline outline-[hsl(0,0%,87%)]  absolute  w-5 h-5   rounded-full"></div>
+                    </div>
+                    <!-- Circle 3 -->
+                    <div
+                        class="circle flex items-center justify-center relative w-5 h-5 border-2 border-[hsl(0,0%,87%)] rounded-full bg-transparent mx-2.5">
+                        <div
+                            class="dot absolute -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[hsl(0,0%,87%)]">
+                        </div>
+                        <div class="outline outline-[hsl(0,0%,87%)]  absolute  w-5 h-5   rounded-full"></div>
+                    </div>
+                    <!-- Circle 4 -->
+                    <div
+                        class="circle flex items-center justify-center relative w-5 h-5 border-2 border-[hsl(0,0%,87%)] rounded-full bg-transparent mx-2.5">
+                        <div
+                            class="dot absolute  -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[hsl(0,0%,87%)]">
+                        </div>
+                        <div class="outline outline-[hsl(0,0%,87%)]  absolute  w-5 h-5   rounded-full"></div>
+                    </div>
+                </div>
+
+                <div class="w-full" id="data-container"></div>
+              
+
+
+
+            </div>
+        </div>
+
+        <!-- Button to Trigger Animation -->
+        <!-- <button id="animate-button"
+            class="fixed bottom-10 cursor-pointer z-10 right-10 bg-blue-500 text-white px-4 py-2 rounded-lg">
+            Animate to Top
+        </button> -->
+
+    </section>
+    <script src="build/index.js" type="module"></script>
+</body>
+
+</html>
